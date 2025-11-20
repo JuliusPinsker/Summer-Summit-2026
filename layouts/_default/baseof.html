@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Site.Title }}</title>
+    <meta name="description" content="{{ .Site.Params.description }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'faps': {
+                            'gruen-dunkel': '#6A8A22',      // FAPS-Grün dunkel 106-138-34
+                            'gruen': '#97C139',              // FAPS-Grün 151-193-57
+                            'gruen-hell': '#C5DE89',         // FAPS-Grün hell 197-222-137
+                            'hausfarbe-gruen': '#658D67',    // Hausfarbe Grün 101-141-103
+                            'gruen-accent': '#61C086',       // Grün hell 97-192-134
+                            'tuerkis-dunkel': '#0A5789',     // Türkis dunkel 0-87-137
+                            'hausfarbe-tuerkis': '#347D7D',  // Hausfarbe Türkis 52-125-125
+                            'tuerkis-metallic': '#779FB5',   // TF Metallic 119-159-181
+                            'blau-dunkel': '#041E42',        // FAU-Blau dunkel 4-30-66
+                            'blau': '#003865',               // FAU-Blau 0-47-108
+                            'blau-hell': '#6C8CC7',          // FAU-Blau hell 108-140-199
+                            'grau-1': '#95A2AB',             // Grau 1 149-162-171
+                            'grau-2': '#B0C4C4',             // Grau 2 176-196-196
+                            'grau-3': '#CFD9DE',             // Grau 3 207-217-222
+                            'gelb': '#FFB300',               // Sonderfa. Gelb 255-179-0
+                            'orange': '#F19031',             // Sonderfa. Orange 241-144-49
+                            'rot': '#DC1E37',                // Sonderfa. Echtrot 220-30-55
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    {{ block "main" . }}{{ end }}
+</body>
+</html>

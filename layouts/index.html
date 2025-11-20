@@ -1,0 +1,581 @@
+{{ define "main" }}
+<div class="w-full p-6 bg-gradient-to-br from-gray-50 to-faps-grau-3">
+    <div class="max-w-7xl mx-auto">
+        <!-- Header mit FAPS-Logo und Farben -->
+        <div class="bg-gradient-to-r from-faps-gruen-dunkel to-faps-gruen p-8 rounded-lg shadow-xl mb-6">
+            <div class="flex items-center justify-between flex-wrap gap-4">
+                <div class="flex items-center gap-6">
+                    <!-- FAPS Logo SVG -->
+                    <div class="bg-faps-gruen p-4 rounded-lg shadow-lg">
+                        <svg width="120" height="120" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="200" height="200" fill="#97C139"/>
+                            <text x="100" y="140" font-family="Arial, sans-serif" font-size="90" font-weight="bold" fill="white" text-anchor="middle">FAPS</text>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-4xl font-bold text-white mb-2">Summer Summit 2026</h1>
+                        <p class="text-faps-gruen-hell text-lg font-semibold">Kompletter Vergleich - Busunternehmen & Hotels</p>
+                        <p class="text-white text-sm mt-2">📅 Veranstaltung: 20.-23. Juli 2026 | 👥 ca. 120 Teilnehmer</p>
+                    </div>
+                </div>
+                <!-- FAU Logo Bereich (optional) -->
+                <div class="hidden md:block">
+                    <div class="text-right">
+                        <p class="text-white text-sm font-semibold">Friedrich-Alexander-Universität</p>
+                        <p class="text-faps-gruen-hell text-xs">Erlangen-Nürnberg</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Tab Navigation mit FAPS-Farben -->
+        <div class="flex gap-2 mb-6 flex-wrap">
+            <button onclick="showTab('buses')" id="tab-buses" class="px-6 py-3 rounded-lg font-semibold transition bg-faps-tuerkis-dunkel text-white shadow-md hover:bg-faps-hausfarbe-tuerkis">
+                🚌 Busunternehmen
+            </button>
+            <button onclick="showTab('hotels')" id="tab-hotels" class="px-6 py-3 rounded-lg font-semibold transition bg-white text-gray-700 hover:bg-faps-grau-3 shadow-md">
+                🏨 Hotels
+            </button>
+            <button onclick="showTab('combined')" id="tab-combined" class="px-6 py-3 rounded-lg font-semibold transition bg-white text-gray-700 hover:bg-faps-grau-3 shadow-md">
+                📊 Kombinierte Analyse
+            </button>
+        </div>
+
+    <!-- Bus Companies Tab -->
+    <div id="content-buses" class="tab-content">
+        <!-- Kitzbühel Bus Offers -->
+        <div class="mb-8">
+            <h2 class="text-xl font-bold mb-3 text-white bg-gradient-to-r from-faps-tuerkis-dunkel to-faps-hausfarbe-tuerkis p-4 rounded-lg shadow-md">
+                🏔️ Kitzbühel - Busangebote
+            </h2>
+            <div class="overflow-x-auto bg-white rounded-lg shadow-lg border-2 border-faps-grau-2">
+                <table class="w-full text-sm">
+                    <thead class="bg-gradient-to-r from-faps-tuerkis-dunkel to-faps-blau text-white">
+                        <tr>
+                            <th class="p-3 text-left">Unternehmen</th>
+                            <th class="p-3 text-left">Angebots-Nr.</th>
+                            <th class="p-3 text-center">Busse</th>
+                            <th class="p-3 text-right">Preis/Bus €</th>
+                            <th class="p-3 text-right">Gesamtpreis €</th>
+                            <th class="p-3 text-center">Sitze/Bus</th>
+                            <th class="p-3 text-left">Abfahrt</th>
+                            <th class="p-3 text-left">Hinweise</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-faps-grau-3 hover:bg-faps-gruen-hell transition">
+                            <td class="p-3 font-medium">Steidl Reisen</td>
+                            <td class="p-3">AN35180</td>
+                            <td class="p-3 text-center">2</td>
+                            <td class="p-3 text-right">2.490,00</td>
+                            <td class="p-3 text-right font-semibold text-faps-gruen-dunkel">4.980,00</td>
+                            <td class="p-3 text-center">49 + 1</td>
+                            <td class="p-3 text-xs">07:15 Nürnberg/Erlangen</td>
+                            <td class="p-3 text-xs">Parkgebühren nicht enthalten</td>
+                        </tr>
+                        <tr class="bg-white hover:bg-faps-gruen-hell transition">
+                            <td class="p-3 font-medium">Neukam-Reba GmbH</td>
+                            <td class="p-3">-</td>
+                            <td class="p-3 text-center">2</td>
+                            <td class="p-3 text-right">2.730,00</td>
+                            <td class="p-3 text-right font-semibold text-faps-gruen-dunkel">5.460,00</td>
+                            <td class="p-3 text-center">50</td>
+                            <td class="p-3 text-xs">07:30 Nürnberg & Erlangen</td>
+                            <td class="p-3 text-xs">Kostenlose Stornierung bis 3 Wochen vorher</td>
+                        </tr>
+                        <tr class="bg-faps-grau-3 hover:bg-faps-gruen-hell transition">
+                            <td class="p-3 font-medium">Omnibusbetrieb Werner Vogel</td>
+                            <td class="p-3">20260720002</td>
+                            <td class="p-3 text-center">2</td>
+                            <td class="p-3 text-right">3.380,00</td>
+                            <td class="p-3 text-right font-semibold text-faps-gruen-dunkel">6.760,00</td>
+                            <td class="p-3 text-center">50</td>
+                            <td class="p-3 text-xs">07:30 Erlangen & Nürnberg</td>
+                            <td class="p-3 text-xs">Maut enthalten, Fahrerunterkunft durch Kunde</td>
+                        </tr>
+                        <tr class="bg-white hover:bg-faps-gruen-hell transition">
+                            <td class="p-3 font-medium">Schielein Reisen</td>
+                            <td class="p-3">20260720002</td>
+                            <td class="p-3 text-center">2</td>
+                            <td class="p-3 text-right">3.125,00</td>
+                            <td class="p-3 text-right font-semibold text-faps-gruen-dunkel">6.250,00</td>
+                            <td class="p-3 text-center">-</td>
+                            <td class="p-3 text-xs">07:30 Erlangen & Nürnberg</td>
+                            <td class="p-3 text-xs">Vorbehaltlich Verfügbarkeit</td>
+                        </tr>
+                        <tr class="bg-faps-grau-3 hover:bg-faps-gruen-hell transition">
+                            <td class="p-3 font-medium">Schmetterling Reisen (Gesamt für 2 Busse)</td>
+                            <td class="p-3">20260720008+009</td>
+                            <td class="p-3 text-center">2</td>
+                            <td class="p-3 text-right">3.175,00</td>
+                            <td class="p-3 text-right font-semibold text-faps-gruen-dunkel">6.350,00</td>
+                            <td class="p-3 text-center">50</td>
+                            <td class="p-3 text-xs">07:30 Erlangen & Nürnberg</td>
+                            <td class="p-3 text-xs">Maut enthalten</td>
+                        </tr>
+                        <tr class="bg-white hover:bg-faps-gruen-hell transition">
+                            <td class="p-3 font-medium">DUV GmbH</td>
+                            <td class="p-3">AG19350</td>
+                            <td class="p-3 text-center">2</td>
+                            <td class="p-3 text-right">5.084,28</td>
+                            <td class="p-3 text-right font-semibold text-faps-gruen-dunkel">10.168,55</td>
+                            <td class="p-3 text-center">50</td>
+                            <td class="p-3 text-xs">07:30 Nürnberg & Erlangen</td>
+                            <td class="p-3 text-xs">Maut/Parkgebühren extra, Fahrerunterkunft durch Kunde</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Kempten Bus Offers -->
+        <div class="mb-8">
+            <h2 class="text-xl font-bold mb-3 text-white bg-gradient-to-r from-faps-tuerkis-dunkel to-faps-hausfarbe-tuerkis p-4 rounded-lg shadow-md">
+                🏔️ Kempten - Busangebote
+            </h2>
+            <div class="overflow-x-auto bg-white rounded-lg shadow-lg border-2 border-faps-grau-2">
+                <table class="w-full text-sm">
+                    <thead class="bg-gradient-to-r from-faps-tuerkis-dunkel to-faps-blau text-white">
+                        <tr>
+                            <th class="p-3 text-left">Unternehmen</th>
+                            <th class="p-3 text-left">Angebots-Nr.</th>
+                            <th class="p-3 text-center">Busse</th>
+                            <th class="p-3 text-right">Preis/Bus €</th>
+                            <th class="p-3 text-right">Gesamtpreis €</th>
+                            <th class="p-3 text-center">Sitze/Bus</th>
+                            <th class="p-3 text-left">Abfahrt</th>
+                            <th class="p-3 text-left">Hinweise</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-faps-grau-3 hover:bg-faps-gruen-hell transition">
+                            <td class="p-3 font-medium">Steidl Reisen</td>
+                            <td class="p-3">AN35181</td>
+                            <td class="p-3 text-center">2</td>
+                            <td class="p-3 text-right">2.360,00</td>
+                            <td class="p-3 text-right font-semibold text-faps-gruen-dunkel">4.720,00</td>
+                            <td class="p-3 text-center">49 + 1</td>
+                            <td class="p-3 text-xs">07:15 Nürnberg/Erlangen</td>
+                            <td class="p-3 text-xs">Parkgebühren nicht enthalten</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-3 font-medium">Neukam-Reba GmbH</td>
+                            <td class="p-3">-</td>
+                            <td class="p-3 text-center">2</td>
+                            <td class="p-3 text-right">2.625,00</td>
+                            <td class="p-3 text-right font-semibold text-faps-gruen-dunkel">5.250,00</td>
+                            <td class="p-3 text-center">50</td>
+                            <td class="p-3 text-xs">07:30 Nürnberg & Erlangen</td>
+                            <td class="p-3 text-xs">Kostenlose Stornierung bis 3 Wochen vorher</td>
+                        </tr>
+                        <tr class="bg-faps-grau-3 hover:bg-faps-gruen-hell transition">
+                            <td class="p-3 font-medium">Omnibusbetrieb Werner Vogel</td>
+                            <td class="p-3">20260720002</td>
+                            <td class="p-3 text-center">2</td>
+                            <td class="p-3 text-right">3.366,00</td>
+                            <td class="p-3 text-right font-semibold text-faps-gruen-dunkel">6.732,00</td>
+                            <td class="p-3 text-center">50</td>
+                            <td class="p-3 text-xs">07:30 Erlangen & Nürnberg</td>
+                            <td class="p-3 text-xs">Fahrerunterkunft durch Kunde</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-3 font-medium">Schielein Reisen</td>
+                            <td class="p-3">20260720002</td>
+                            <td class="p-3 text-center">2</td>
+                            <td class="p-3 text-right">3.025,00</td>
+                            <td class="p-3 text-right font-semibold text-faps-gruen-dunkel">6.050,00</td>
+                            <td class="p-3 text-center">-</td>
+                            <td class="p-3 text-xs">07:30 Erlangen & Nürnberg</td>
+                            <td class="p-3 text-xs">Vorbehaltlich Verfügbarkeit</td>
+                        </tr>
+                        <tr class="bg-faps-grau-3 hover:bg-faps-gruen-hell transition">
+                            <td class="p-3 font-medium">Schmetterling Reisen (Gesamt für 2 Busse)</td>
+                            <td class="p-3">20260720010+011</td>
+                            <td class="p-3 text-center">2</td>
+                            <td class="p-3 text-right">3.045,00</td>
+                            <td class="p-3 text-right font-semibold text-faps-gruen-dunkel">6.090,00</td>
+                            <td class="p-3 text-center">50</td>
+                            <td class="p-3 text-xs">07:30 Erlangen & Nürnberg</td>
+                            <td class="p-3 text-xs">Parkgebühren extra</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-3 font-medium">DUV GmbH</td>
+                            <td class="p-3">AG19341</td>
+                            <td class="p-3 text-center">2</td>
+                            <td class="p-3 text-right">4.254,25</td>
+                            <td class="p-3 text-right font-semibold text-faps-gruen-dunkel">8.508,50</td>
+                            <td class="p-3 text-center">50</td>
+                            <td class="p-3 text-xs">07:30 Nürnberg & Erlangen</td>
+                            <td class="p-3 text-xs">Maut/Parkgebühren extra</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Bad Wörishofen Bus Offers -->
+        <div class="mb-8">
+            <h2 class="text-xl font-bold mb-3 text-white bg-gradient-to-r from-faps-tuerkis-dunkel to-faps-hausfarbe-tuerkis p-4 rounded-lg shadow-md">
+                🏔️ Bad Wörishofen - Busangebote
+            </h2>
+            <div class="overflow-x-auto bg-white rounded-lg shadow-lg border-2 border-faps-grau-2">
+                <table class="w-full text-sm">
+                    <thead class="bg-gradient-to-r from-faps-tuerkis-dunkel to-faps-blau text-white">
+                        <tr>
+                            <th class="p-3 text-left">Unternehmen</th>
+                            <th class="p-3 text-left">Angebots-Nr.</th>
+                            <th class="p-3 text-center">Busse</th>
+                            <th class="p-3 text-right">Preis/Bus €</th>
+                            <th class="p-3 text-right">Gesamtpreis €</th>
+                            <th class="p-3 text-center">Sitze/Bus</th>
+                            <th class="p-3 text-left">Abfahrt</th>
+                            <th class="p-3 text-left">Hinweise</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-faps-grau-3 hover:bg-faps-gruen-hell transition">
+                            <td class="p-3 font-medium">Steidl Reisen</td>
+                            <td class="p-3">AN35182</td>
+                            <td class="p-3 text-center">2</td>
+                            <td class="p-3 text-right">1.980,00</td>
+                            <td class="p-3 text-right font-semibold text-faps-gruen-dunkel">3.960,00</td>
+                            <td class="p-3 text-center">49 + 1</td>
+                            <td class="p-3 text-xs">07:15 Nürnberg/Erlangen</td>
+                            <td class="p-3 text-xs">Parkgebühren nicht enthalten</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-3 font-medium">Neukam-Reba GmbH</td>
+                            <td class="p-3">-</td>
+                            <td class="p-3 text-center">2</td>
+                            <td class="p-3 text-right">2.320,00</td>
+                            <td class="p-3 text-right font-semibold text-faps-gruen-dunkel">4.640,00</td>
+                            <td class="p-3 text-center">50</td>
+                            <td class="p-3 text-xs">07:30 Nürnberg & Erlangen</td>
+                            <td class="p-3 text-xs">Kostenlose Stornierung bis 3 Wochen vorher</td>
+                        </tr>
+                        <tr class="bg-faps-grau-3 hover:bg-faps-gruen-hell transition">
+                            <td class="p-3 font-medium">Omnibusbetrieb Werner Vogel</td>
+                            <td class="p-3">20260720002</td>
+                            <td class="p-3 text-center">2</td>
+                            <td class="p-3 text-right">3.290,00</td>
+                            <td class="p-3 text-right font-semibold text-faps-gruen-dunkel">6.580,00</td>
+                            <td class="p-3 text-center">50</td>
+                            <td class="p-3 text-xs">07:30 Erlangen & Nürnberg</td>
+                            <td class="p-3 text-xs">Fahrerunterkunft durch Kunde</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-3 font-medium">Schielein Reisen</td>
+                            <td class="p-3">20260720002</td>
+                            <td class="p-3 text-center">2</td>
+                            <td class="p-3 text-right">2.625,00</td>
+                            <td class="p-3 text-right font-semibold text-faps-gruen-dunkel">5.250,00</td>
+                            <td class="p-3 text-center">-</td>
+                            <td class="p-3 text-xs">07:30 Erlangen & Nürnberg</td>
+                            <td class="p-3 text-xs">Vorbehaltlich Verfügbarkeit</td>
+                        </tr>
+                        <tr class="bg-faps-grau-3 hover:bg-faps-gruen-hell transition">
+                            <td class="p-3 font-medium">Schmetterling Reisen (Gesamt für 2 Busse)</td>
+                            <td class="p-3">20260720012+013</td>
+                            <td class="p-3 text-center">2</td>
+                            <td class="p-3 text-right">2.290,00</td>
+                            <td class="p-3 text-right font-semibold text-faps-gruen-dunkel">4.580,00</td>
+                            <td class="p-3 text-center">50</td>
+                            <td class="p-3 text-xs">07:30 Erlangen & Nürnberg</td>
+                            <td class="p-3 text-xs">Parkgebühren extra</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-3 font-medium">DUV GmbH</td>
+                            <td class="p-3">AG19352</td>
+                            <td class="p-3 text-center">2</td>
+                            <td class="p-3 text-right">3.117,80</td>
+                            <td class="p-3 text-right font-semibold text-faps-gruen-dunkel">6.235,60</td>
+                            <td class="p-3 text-center">50</td>
+                            <td class="p-3 text-xs">07:30 Nürnberg & Erlangen</td>
+                            <td class="p-3 text-xs">Maut/Parkgebühren extra</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hotels Tab -->
+    <div id="content-hotels" class="tab-content hidden">
+        <h2 class="text-2xl font-bold mb-4 text-faps-gruen-dunkel">Hotelangebotsvergleich</h2>
+        
+        <!-- Alpine University Kitzbühel -->
+        <div class="mb-6 bg-white rounded-lg shadow-lg p-6">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800">Alpine University Kitzbühel (McKinsey)</h3>
+                    <p class="text-lg text-green-600 font-semibold">Kitzbühel</p>
+                </div>
+                <div class="text-right">
+                    <p class="text-sm text-gray-600">Geschätzte Gesamtkosten</p>
+                    <p class="text-2xl font-bold text-faps-gruen-dunkel">€64.102,50</p>
+                    <p class="text-xs text-gray-500">(inkl. 10% MwSt. auf Zimmer, 20% auf Tagung/Verpflegung)</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                <div>
+                    <p class="text-sm font-semibold text-gray-700">Datum:</p>
+                    <p class="text-sm text-gray-600">20.07-23.07.2026</p>
+                </div>
+                <div>
+                    <p class="text-sm font-semibold text-gray-700">Zimmer:</p>
+                    <p class="text-sm text-gray-600">70 Zimmer (3 Nächte)</p>
+                </div>
+                <div>
+                    <p class="text-sm font-semibold text-gray-700">Kapazität:</p>
+                    <p class="text-sm text-gray-600">ca. 120 Personen</p>
+                </div>
+                <div>
+                    <p class="text-sm font-semibold text-gray-700">Preis pro Zimmer:</p>
+                    <p class="text-sm text-gray-600">€277,50 netto (+ 10% MwSt. = €305,25 brutto)</p>
+                </div>
+            </div>
+            
+            <div class="mt-4">
+                <p class="text-sm font-semibold text-gray-700">Inklusivleistungen:</p>
+                <p class="text-sm text-gray-600">Unterkunft, Mahlzeiten, Konferenzräume, Standard-Technik, Parkplatz, WLAN</p>
+            </div>
+            
+            <div class="mt-3">
+                <p class="text-sm font-semibold text-gray-700">Stornierungsrichtlinien:</p>
+                <p class="text-xs text-gray-600">>180 Tage: kostenlos; 180-91 Tage: 40%; 90-31 Tage: 40%; 30-3 Tage: 70%; ≤2 Tage: 100%</p>
+            </div>
+            
+            <div class="mt-3 bg-yellow-50 p-3 rounded">
+                <p class="text-sm font-semibold text-gray-700">Hinweise:</p>
+                <p class="text-sm text-gray-600">Doppelbelegung: €138,75 netto pro Person (€152,63 brutto mit MwSt.). McKinsey-Richtlinien gelten. MwSt: 10% auf Zimmer, 20% auf Tagung und Verpflegung.</p>
+            </div>
+        </div>
+
+        <!-- Hotel Der Sonnenhof -->
+        <div class="mb-6 bg-white rounded-lg shadow-lg p-6">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800">Hotel Der Sonnenhof</h3>
+                    <p class="text-lg text-green-600 font-semibold">Bad Wörishofen</p>
+                </div>
+                <div class="text-right">
+                    <p class="text-sm text-gray-600">Geschätzte Gesamtkosten</p>
+                    <p class="text-2xl font-bold text-faps-gruen-dunkel">€104.400,00</p>
+                    <p class="text-xs text-gray-500">(mit aktualisierten Normalpreisen)</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                <div>
+                    <p class="text-sm font-semibold text-gray-700">Datum:</p>
+                    <p class="text-sm text-gray-600">20.07-23.07.2026</p>
+                </div>
+                <div>
+                    <p class="text-sm font-semibold text-gray-700">Zimmer:</p>
+                    <p class="text-sm text-gray-600">10 Einzelzimmer + 55 Doppelzimmer (3 Nächte)</p>
+                </div>
+                <div>
+                    <p class="text-sm font-semibold text-gray-700">Kapazität:</p>
+                    <p class="text-sm text-gray-600">120 Personen</p>
+                </div>
+                <div>
+                    <p class="text-sm font-semibold text-gray-700">Preis pro Person/Nacht:</p>
+                    <p class="text-sm text-gray-600">Einzelzimmer: €350 pppn, Doppelzimmer: €260 pppn</p>
+                </div>
+            </div>
+            
+            <div class="mt-4">
+                <p class="text-sm font-semibold text-gray-700">Inklusivleistungen:</p>
+                <p class="text-sm text-gray-600">Halbpension, Konferenzpaket €92/Person/Tag, Hauptkonferenzraum, 9 Gruppenräume</p>
+            </div>
+            
+            <div class="mt-3">
+                <p class="text-sm font-semibold text-gray-700">Stornierungsrichtlinien:</p>
+                <p class="text-xs text-gray-600">>80 Personen: kostenlos bis 6 Monate vorher; danach gestaffelt 20-80%</p>
+            </div>
+            
+            <div class="mt-3 bg-yellow-50 p-3 rounded">
+                <p class="text-sm font-semibold text-gray-700">Hinweise:</p>
+                <p class="text-sm text-gray-600">Normalpreise (Schnellentscheider-Rabatt bereits abgelaufen). Mit Halbpension. Optionale Wellness €10-20/Person/Nacht. Abendessen ab €49/Person. Berechnung: 10 EZ × €350 × 3 Nächte = €10.500; 110 Personen × €260 × 3 Nächte = €85.800; Konferenz: 120 × €92 × 3 = €33.120. Gesamt: ca. €104.400</p>
+            </div>
+        </div>
+
+        <!-- bigBOX ALLGÄU Hotel -->
+        <div class="mb-6 bg-white rounded-lg shadow-lg p-6">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800">bigBOX ALLGÄU Hotel</h3>
+                    <p class="text-lg text-green-600 font-semibold">Kempten</p>
+                </div>
+                <div class="text-right">
+                    <p class="text-sm text-gray-600">Geschätzte Gesamtkosten</p>
+                    <p class="text-2xl font-bold text-faps-gruen-dunkel">€84.163,00</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                <div>
+                    <p class="text-sm font-semibold text-gray-700">Datum:</p>
+                    <p class="text-sm text-gray-600">20.07-23.07.2026</p>
+                </div>
+                <div>
+                    <p class="text-sm font-semibold text-gray-700">Zimmer:</p>
+                    <p class="text-sm text-gray-600">10 Einzelzimmer + 55 Doppelzimmer (3 Nächte)</p>
+                </div>
+                <div>
+                    <p class="text-sm font-semibold text-gray-700">Kapazität:</p>
+                    <p class="text-sm text-gray-600">120 Personen</p>
+                </div>
+                <div>
+                    <p class="text-sm font-semibold text-gray-700">Preis pro Zimmer:</p>
+                    <p class="text-sm text-gray-600">Einzelzimmer: €129, Doppelzimmer: €169</p>
+                </div>
+            </div>
+            
+            <div class="mt-4">
+                <p class="text-sm font-semibold text-gray-700">Inklusivleistungen:</p>
+                <p class="text-sm text-gray-600">Frühstück, Konferenzpaket €76,90/Person/Tag, Hauptraum, 13 Gruppenräume (€298/Tag je Raum)</p>
+            </div>
+            
+            <div class="mt-3">
+                <p class="text-sm font-semibold text-gray-700">Stornierungsrichtlinien:</p>
+                <p class="text-xs text-gray-600">Kostenlos bis 84 Tage vorher; 50% bis 42 Tage; 90% ab 41 Tage</p>
+            </div>
+            
+            <div class="mt-3 bg-yellow-50 p-3 rounded">
+                <p class="text-sm font-semibold text-gray-700">Hinweise:</p>
+                <p class="text-sm text-gray-600">Nur 13 Gruppenräume verfügbar (benötigt werden 15). Vorschlag: Hauptraum für 2 Gruppen gemeinsam nutzen.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Combined Analysis Tab -->
+    <div id="content-combined" class="tab-content hidden">
+        <h2 class="text-2xl font-bold mb-4 text-faps-gruen">Kombinierte Bus + Hotel Analyse</h2>
+        
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-6">
+            <table class="w-full">
+                <thead class="bg-faps-gruen-dunkel text-white">
+                    <tr>
+                        <th class="p-4 text-left">Zielort</th>
+                        <th class="p-4 text-left">Beste Busoption</th>
+                        <th class="p-4 text-right">Buskosten €</th>
+                        <th class="p-4 text-left">Hotel</th>
+                        <th class="p-4 text-right">Hotelkosten €</th>
+                        <th class="p-4 text-right font-bold">Gesamtkosten €</th>
+                        <th class="p-4 text-left">Hinweise</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-faps-grau-3 hover:bg-faps-gruen-hell transition">
+                        <td class="p-4 font-bold text-gray-800">Kitzbühel</td>
+                        <td class="p-4">Steidl Reisen</td>
+                        <td class="p-4 text-right font-semibold text-faps-tuerkis-dunkel">4.980,00</td>
+                        <td class="p-4">Alpine University</td>
+                        <td class="p-4 text-right font-semibold text-green-600">64.102,50</td>
+                        <td class="p-4 text-right font-bold text-faps-gruen text-lg">69.082,50</td>
+                        <td class="p-4 text-sm text-gray-600">McKinsey-Räumlichkeiten mit Richtlinieneinschränkungen</td>
+                    </tr>
+                    <tr class="bg-white">
+                        <td class="p-4 font-bold text-gray-800">Bad Wörishofen</td>
+                        <td class="p-4">Steidl Reisen</td>
+                        <td class="p-4 text-right font-semibold text-faps-tuerkis-dunkel">3.960,00</td>
+                        <td class="p-4">Hotel Der Sonnenhof</td>
+                        <td class="p-4 text-right font-semibold text-green-600">104.400,00</td>
+                        <td class="p-4 text-right font-bold text-faps-gruen text-lg">108.360,00</td>
+                        <td class="p-4 text-sm text-gray-600">Komplettpaket, Normalpreise (Frühbucher abgelaufen)</td>
+                    </tr>
+                    <tr class="bg-faps-grau-3 hover:bg-faps-gruen-hell transition">
+                        <td class="p-4 font-bold text-gray-800">Kempten</td>
+                        <td class="p-4">Steidl Reisen</td>
+                        <td class="p-4 text-right font-semibold text-faps-tuerkis-dunkel">4.720,00</td>
+                        <td class="p-4">bigBOX ALLGÄU Hotel</td>
+                        <td class="p-4 text-right font-semibold text-green-600">84.163,00</td>
+                        <td class="p-4 text-right font-bold text-faps-gruen text-lg">88.883,00</td>
+                        <td class="p-4 text-sm text-gray-600">Nur 13 Gruppenräume (15 benötigt)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Recommendation Box -->
+        <div class="bg-gradient-to-r from-faps-gruen-hell to-blue-50 border-2 border-faps-gruen rounded-lg p-6">
+            <h3 class="text-xl font-bold text-faps-blau-dunkel mb-4">💡 Empfehlung</h3>
+            
+            <div class="space-y-4">
+                <div class="bg-white p-4 rounded-lg">
+                    <h4 class="font-bold text-faps-gruen-dunkel mb-2">🏆 Bestes Preis-Leistungs-Verhältnis: Kitzbühel</h4>
+                    <ul class="text-sm space-y-1 ml-4">
+                        <li>• <strong>Geschätzte Gesamtkosten:</strong> €69.082,50 (niedrigste Gesamtkosten)</li>
+                        <li>• <strong>Bester Buspreis:</strong> €4.980,00 (Steidl Reisen)</li>
+                        <li>• <strong>Hotel:</strong> Alpine University - Komplettpaket mit allen Einrichtungen</li>
+                        <li>• <strong>Vorteile:</strong> Veranstaltungsort der Vorjahre, Teilnehmern bekannt</li>
+                        <li>• <strong>Einrichtungen:</strong> Alle Konferenzräume und Technik vorhanden</li>
+                        <li>• <strong>Wichtig:</strong> MwSt bereits einberechnet (10% auf Zimmer, 20% auf Tagung/Verpflegung)</li>
+                        <li>• <strong>Einschränkung:</strong> McKinsey-Richtlinie - Mitarbeiter/Alumnus muss während des gesamten Aufenthalts anwesend sein</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg">
+                    <h4 class="font-bold text-faps-orange mb-2">⚠️ Mit Vorsicht zu betrachten: Bad Wörishofen</h4>
+                    <ul class="text-sm space-y-1 ml-4">
+                        <li>• <strong>Gesamtkosten:</strong> €108.360,00 (deutlich höher mit aktualisierten Normalpreisen)</li>
+                        <li>• <strong>Preisänderung:</strong> Schnellentscheider-Rabatt bereits abgelaufen</li>
+                        <li>• <strong>Aktuelle Preise:</strong> €350 pppn Einzelzimmer, €260 pppn Doppelzimmer mit Halbpension</li>
+                        <li>• <strong>Hotelkosten allein:</strong> €104.400 - sehr teuer im Vergleich</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg">
+                    <h4 class="font-bold text-faps-gruen-dunkel mb-2">ℹ️ Mittlere Option: Kempten</h4>
+                    <ul class="text-sm space-y-1 ml-4">
+                        <li>• <strong>Gesamtkosten:</strong> €88.883,00</li>
+                        <li>• <strong>Problem:</strong> Nur 13 Gruppenräume verfügbar (15 benötigt)</li>
+                        <li>• <strong>Lösung:</strong> 2 Gruppen könnten Hauptraum gemeinsam nutzen</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-6 bg-faps-gruen-hell p-4 rounded-lg border-2 border-faps-gruen">
+                <h4 class="font-bold text-faps-gruen-dunkel mb-2">✅ Finale Empfehlung: Kitzbühel</h4>
+                <p class="text-sm text-gray-700">
+                    <strong>Kitzbühel</strong> bietet mit <strong>€69.082,50</strong> die niedrigsten Gesamtkosten und ist der Veranstaltungsort der Vorjahre, 
+                    was für Teilnehmer einen Wiedererkennungswert hat. Die McKinsey-Richtlinie (Mitarbeiter/Alumnus muss anwesend sein) 
+                    sollte erfüllbar sein. Alle Einrichtungen sind vorhanden und die MwSt. ist bereits in der Kalkulation berücksichtigt.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showTab(tabName) {
+        // Hide all tab contents
+        document.querySelectorAll('.tab-content').forEach(content => {
+            content.classList.add('hidden');
+        });
+        
+        // Reset all tab buttons
+        document.querySelectorAll('[id^="tab-"]').forEach(btn => {
+            btn.classList.remove('bg-faps-tuerkis-dunkel', 'bg-faps-gruen', 'bg-faps-gruen-dunkel', 'text-white');
+            btn.classList.add('bg-white', 'text-gray-700', 'hover:bg-faps-grau-3');
+        });
+        
+        // Show selected tab content
+        document.getElementById('content-' + tabName).classList.remove('hidden');
+        
+        // Highlight selected tab button
+        const activeBtn = document.getElementById('tab-' + tabName);
+        activeBtn.classList.remove('bg-white', 'text-gray-700', 'hover:bg-faps-grau-3');
+        
+        if (tabName === 'buses') {
+            activeBtn.classList.add('bg-faps-tuerkis-dunkel', 'text-white');
+        } else if (tabName === 'hotels') {
+            activeBtn.classList.add('bg-faps-gruen', 'text-white');
+        } else if (tabName === 'combined') {
+            activeBtn.classList.add('bg-faps-gruen-dunkel', 'text-white');
+        }
+    }
+</script>
+{{ end }}
