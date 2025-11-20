@@ -1,7 +1,6 @@
 baseURL = 'https://JuliusPinsker.github.io/Summer-Summit-2026/'
 languageCode = 'de'
 title = 'FAPS Summer Summit 2026'
-theme = ''
 
 [params]
   description = 'Kompletter Vergleich für das FAPS Summer Summit 2026'
