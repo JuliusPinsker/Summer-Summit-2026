@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Suitcase/Briefcase Icon in FAPS Green -->
+  <rect x="10" y="20" width="44" height="32" rx="2" fill="#97C139" stroke="#6A8A22" stroke-width="2"/>
+  <rect x="10" y="20" width="44" height="8" fill="#6A8A22"/>
+  <rect x="25" y="12" width="14" height="8" rx="1" fill="#6A8A22"/>
+  <circle cx="32" cy="36" r="3" fill="#041E42"/>
+  <rect x="30" y="36" width="4" height="8" fill="#041E42"/>
+</svg>
